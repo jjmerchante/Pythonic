@@ -1,0 +1,168 @@
+""" SOME IDIOMS OF THE LIST """
+
+video 1
+==================================================================
+import x.a.b
+import x.a.c
+mejor que:
+import x.a.b \\
+       x.a.c
+-----------------------------------
+single quotes instead of double or triple
+-----------------------------------
+magic methods (e.g.: __str__, __len__) file: point.py
+-----------------------------------
+@property in the class
+-----------------------------------
+when call a function do: e.g: twitter_search('name', numtweets=20, unicode=true)
+-----------------------------------
+use collections --> https://docs.python.org/2/library/collections.html
+namedtuple,
+==================================================================
+video 2
+==================================================================
+use of xrange instead of range if there is an huge list (but not very important)
+------------------------------------
+use: for color in colors: [...]. > reversed
+use: for i, color in enumerate(colors)
+------------------------------------
+
+
+==================================================================
+others
+==================================================================
+
+PEP8
+------
+colors = ['red', 'blue', 'green']
+result = ', '.join(colors)
+
+-----
+@classmethod and more
+
+-----
+use: key in dict instead of dict.has_key()
+
+-----
+List comprehensions
+list = [pow2(num) for num in range(10) if num % 2 == 0]
+
+ranks = [str(n) for n in range(2,11)] ...
+cards = [Card(rank, suit) for suit in suits
+                          for rank in ranks ]
+More in fluent python in p. 21 (46)
+
+
+==============================================================
+http://intermediate-and-advanced-software-carpentry.readthedocs.org/en/latest/idiomatic-python-2.html
+==============================================================
+-----
+try:
+...
+except SOMETHING:
+
+-----
+finally:
+
+==============================================================
+http://intermediate-and-advanced-software-carpentry.readthedocs.org/en/latest/idiomatic-python.html
+==============================================================
+
+
+==================================================================
+---Fluent Python---
+==================================================================
+in a class the use of: __len__, __getitem__, __str__
+pag 5 (30) Example 1.1
+for iterating add: __iter__ and next or just __getitem__
+
+------
+private variables in a class begins with _xx
+
+-----
+
+==========================================================
+Efective python
+
+==========================================================
+
+...............................
+
+...............................
+
+...............................
+
+...............................
+# -*- coding: utf-8 -*-
+...............................
+write something like #!/usr/bin/python
+...............................
+use of if __name__ == '__main__'
+ - https://docs.python.org/2/tutorial/modules.html
+................................
+use of try: except KeyError in dictionary
+.................................
+use of: key -in- dict
+use of: for key in dict
+.................................
+passing a function in the function's arguments
+................................
+nested classes
+................................
+try: finally:
+................................
+use of decorators already created
+ - Python Pocket Reference (p88)
+................................
+creating decorators
+ - Python Pocket reference(p67)
+................................
+List comprehension and generator expressions
+ - Python pocket reference (p38)
+................................
+use of with open() as f:
+ - Python pocket reference (p48)(p80)
+    INSTEAD OF:
+      myfile = open('file', 'w')
+      try: ... finally: ...
+      myfile.close()
+    USE:
+      whith open('file', 'w') as f:
+................................
+Create generators and iterators
+ - Python Pocket Reference (p69)
+................................
+Correct use of import statements
+ - Python Pocket Reference (p72)
+................................
+Use of try except finally
+ - Python Pocket Reference (p75)
+................................
+Use of _ for private methods
+ - Python Pocket Reference (p86)
+ - Fluent Python (p263)
+...............................
+Try: Except: with a lot of lines
+...............................
+Try inside another try
+ - https://www.python.org/dev/peps/pep-0341/
+...............................
+Looping over range of numbers
+ - Video Raymond 1:
+ 03:04 -- Looping over a range of functions
+
+...............................
+Video Raymond 1
+04:47 -- Looping over a collection
+05:28 -- Looping backwards
+06:51 -- Looping over a collection of indicies
+
+
+
+
+
+.....................................
+idiomatic python
+https://www.jeffknupp.com/writing-idiomatic-python-videos/1
+
+video raymond1: https://youtu.be/OSGv2VnC0go
