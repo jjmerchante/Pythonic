@@ -15,7 +15,7 @@ from collections import namedtuple
 
 JSON_DIR = '../../files/json-repos'
 REPOS_DIR = '../../files/code-repos'
-access_token = '4e2f0a5527e98228cf1e5f92d2c947df6cdcd923'
+access_token = ''
 #CSV_FILE_REPOS = '../../files/projects_python_2.csv'
 
 ProjectRecord = namedtuple('ProjectRecord', 'id, url, owner_id, name, descriptor, language, created_at, forked_from, deleted, updated_at')
