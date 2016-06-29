@@ -81,7 +81,7 @@ def _findSeqInTokens(sequence, tokens):
         elif _ignoreStr(word):
             continue
         # Check before starting again if it is the first word in the sequence
-        elif ttype is sequence[0][0] and re.match(sequence[0][1], word):
+        elif _sameToken((ttype, word), sequence[0]):
             pos = 1
         else:
             pos = 0
@@ -214,16 +214,26 @@ def findMain(code):
     pos = 0
     lexer = PythonLexer()
 
-    tokens = pygments.lex(code, lexer)
-    sequence = [(Token.Keyword, '^if$'),
+    tokens_1 = pygments.lex(code, lexer)
+    tokens_2 = pygments.lex(code, lexer)
+    
+    sequence_1 = [(Token.Keyword, '^if$'),
                 (Token.Name, '^__name__$'),
                 (Token.Operator, '^==$'),
-                (Token.Literal.String, '^__main__$'),
+                (Token.Literal.String.Double, '^__main__$'),
+                (Token.Punctuation, '^:$')]
+
+    sequence_2 = [(Token.Keyword, '^if$'),
+                (Token.Name, '^__name__$'),
+                (Token.Operator, '^==$'),
+                (Token.Literal.String.Single, '^__main__$'),
                 (Token.Punctuation, '^:$')]
 
     mainIdiom = PythonIdiom('ifNameMain')
 
-    lineNum = _findSeqInTokens(sequence, tokens)
+    lineNum = _findSeqInTokens(sequence_1, tokens_1)
+    if lineNum < 0:
+        lineNum = _findSeqInTokens(sequence_2, tokens_2)
     if lineNum > 0:
         mainIdiom.addNew(lineNum)
     log("If name main found in lines: " + str(mainIdiom.getLines()))

@@ -13,10 +13,10 @@ import json
 import sys
 from collections import namedtuple
 
-JSON_DIR = 'json-repos'
-REPOS_DIR = 'code-repos2'
-access_token = ''
-CSV_FILE_REPOS = 'projects-python.csv'
+JSON_DIR = '../../files/json-repos'
+REPOS_DIR = '../../files/code-repos'
+access_token = '4e2f0a5527e98228cf1e5f92d2c947df6cdcd923'
+#CSV_FILE_REPOS = '../../files/projects_python_2.csv'
 
 ProjectRecord = namedtuple('ProjectRecord', 'id, url, owner_id, name, descriptor, language, created_at, forked_from, deleted, updated_at')
 
@@ -111,7 +111,7 @@ def getRepositories(fileCSV):
 
 
 if __name__ == '__main__':
-    if access_token:
-        getRepositories('projects-python.csv')
+    if len(sys.argv) == 2:
+        getRepositories(sys.argv[1])
     else:
-        print "You need to set the access_token"
+        print "Usage: python", sys.argv[0], "csv_file"

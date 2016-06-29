@@ -51,4 +51,7 @@ def deleteNoPyfilesIn(path):
     return filesList
 
 if __name__ == '__main__':
-    deleteNoPyfilesIn("code-repos2")
+    if len(sys.argv) == 2:
+        deleteNoPyfilesIn(sys.argv[1])
+    else:
+        print 'usage: python', sys.argv[0], 'directory'

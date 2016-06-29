@@ -11,9 +11,9 @@ import signal
 
 DONE_FOLDER_REPOS = "/home/josejm/python-analysis/code-repos-done"
 BIG_FOLDER_REPOS = "/home/josejm/python-analysis/code-repos-big"
-MAX_FILES = 800
+MAX_FILES = 1200
 FILE_TIMEOUT = 60*5 # 5 minutes
-TIMEOUT_LOG = '../errors.txt'
+TIMEOUT_LOG = '/home/josejm/python-analysis/errors.txt'
 MONGODB_URL = 'mongodb://localhost:27017/'
 COLLECTION_NAME = 'idioms'
 VERSION_DB = 'v2'
@@ -140,6 +140,10 @@ def main(repos):
         reposdone += 1
 
 if __name__ == '__main__':
-    os.chdir("/home/josejm/python-analysis/code-repos/")
-    repos = os.listdir(".")
-    main(repos)
+    #os.chdir("/home/josejm/python-analysis/code-repos/")
+    if len(sys.argv) == 2:
+        os.chdir(sys.argv[1])
+        repos = os.listdir(".")
+        main(repos)
+    else:
+        print "usage: python", sys.argv[0], "container_folder"
